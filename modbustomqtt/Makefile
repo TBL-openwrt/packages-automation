@@ -11,8 +11,8 @@ PKG_VERSION:=1.0.0
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
-PKG_SOURCE_URL:=https://github.com/owagner/modbus2mqtt
-PKG_HASH:=73c31df28c91f655061421546a687802a799bd1e
+PKG_SOURCE_URL:=https://github.com/TBL-openwrt/modbus2mqtt.git
+PKG_HASH:=43E4B24C8183C1FBE976E9D017B989EEA7B358167362E93E44F5812A7D1E0364
 
 include $(INCLUDE_DIR)/package.mk
 $(call include_mk, python-package.mk)
@@ -22,7 +22,7 @@ define Package/python-modbus2mqtt
   CATEGORY:=Languages
   SUBMENU:=Python
   TITLE:=python-modbus2mqtt
-  URL:=https://github.com/owagner/modbus2mqtt.git
+  URL:=https://github.com/TBL-openwrt/modbus2mqtt.git
   DEPENDS:=+python3 +python3-twisted +python3-pyserial +python-modbustk
   MAINTAINER:=Galen Collins
 endef

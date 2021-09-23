@@ -12,7 +12,7 @@ PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://github.com/ljean/modbus-tk.git
-PKG_HASH:=5732f861727128185fbf35e4a2e1b10b1db21a87
+PKG_HASH:=C59F8A73A92577812FE1BF70A9326060F21F08EA7BE7007289F8902595C085D9
 
 include $(INCLUDE_DIR)/package.mk
 $(call include_mk, python-package.mk)
