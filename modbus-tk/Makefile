@@ -7,12 +7,12 @@
 
 include $(TOPDIR)/rules.mk
 PKG_NAME:=modbustk
-PKG_VERSION:=1.0.0
+PKG_VERSION:=1.1.1
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://github.com/ljean/modbus-tk.git
-PKG_HASH:=14c70f2c3c794b7e2944762f408b98e7bc77a8fe
+PKG_HASH:=5732f861727128185fbf35e4a2e1b10b1db21a87
 
 include $(INCLUDE_DIR)/package.mk
 $(call include_mk, python-package.mk)
@@ -23,7 +23,7 @@ define Package/python-modbustk
   SUBMENU:=Python
   TITLE:=python-modbustk
   URL:=https://github.com/ljean/modbus-tk.git
-  DEPENDS:=+python +python-serial
+  DEPENDS:=+python3 +python3-pyserial
   MAINTAINER:=Galen Collins
 endef
 

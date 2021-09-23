@@ -23,7 +23,7 @@ define Package/python-modbus2mqtt
   SUBMENU:=Python
   TITLE:=python-modbus2mqtt
   URL:=https://github.com/owagner/modbus2mqtt.git
-  DEPENDS:=+python +python-twisted +python-serial +python-modbustk
+  DEPENDS:=+python3 +python3-twisted +python3-pyserial +python-modbustk
   MAINTAINER:=Galen Collins
 endef
 
