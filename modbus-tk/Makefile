@@ -17,7 +17,7 @@ PKG_HASH:=14c70f2c3c794b7e2944762f408b98e7bc77a8fe
 include $(INCLUDE_DIR)/package.mk
 $(call include_mk, python-package.mk)
 
-define Package/python-modbus2mqtt
+define Package/python-modbustk
   SECTION:=language-python
   CATEGORY:=Languages
   SUBMENU:=Python
