@@ -345,7 +345,7 @@ MAKE_VARS += BACNET_DEFINES="\
 define Build/Compile
 	+$(MAKE_VARS) $(MAKE) $(PKG_JOBS) \
 		-C $(PKG_BUILD_DIR) \
-		readprop
+		demos
 endef
 endif
 
