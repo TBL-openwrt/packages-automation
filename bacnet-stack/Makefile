@@ -107,6 +107,18 @@ define Package/bacnet-stack-router/description
   This package is built with Routing MSTP BIP support.
 endef
 
+define Package/bacnet-stack-mstputil
+$(call Package/bacnet-stack/Default)
+  TITLE+= (MSTP BACRP UTIL)
+  MENU:=1
+  VARIANT:=mstputil
+  DEPENDS+= +bacnet-stack-uci
+endef
+
+define Package/bacnet-stack-router/description
+  This package is a read property utility with MSTP support.
+endef
+
 define Package/bacnet-stack-bip/config
   source "$(SOURCE)/Config-bip.in"
 endef
@@ -322,6 +334,21 @@ define Build/Compile
 endef
 endif
 
+ifeq ($(BUILD_VARIANT),mstputil)
+MAKE_VARS += BACDL_DEFINE=-DBACDL_MSTP=1
+MAKE_VARS += BACNET_DEFINES="\
+-DBACAPP_ALL \
+-DPRINT_ENABLED=1 \
+-DBACNET_PROPERTY_LISTS=1 \
+-DBAC_UCI \
+"
+define Build/Compile
+	+$(MAKE_VARS) $(MAKE) $(PKG_JOBS) \
+		-C $(PKG_BUILD_DIR) \
+		readprop
+endef
+endif
+
 ifeq ($(BUILD_VARIANT),utils)
 MAKE_VARS += BACDL_DEFINE=-DBACDL_BIP=1
 MAKE_VARS += BACNET_DEFINES="\
@@ -464,6 +491,11 @@ define Package/bacnet-stack-router/install
 	$(INSTALL_BIN) ./files/bacrouter.init $(1)/etc/init.d/bacrouter
 endef
 
+define Package/bacnet-stack-mstputil/install
+	$(INSTALL_DIR) $(1)/usr/bin
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/bin/bacrp $(1)/usr/bin/bacrp-mstp
+endef
+
 define Package/bacnet-stack-utils/install
 	$(INSTALL_DIR) $(1)/usr/bin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/bin/bacarf $(1)/usr/bin/
@@ -497,3 +529,4 @@ $(eval $(call BuildPackage,bacnet-stack-ethernet))
 $(eval $(call BuildPackage,bacnet-stack-mstp))
 $(eval $(call BuildPackage,bacnet-stack-router))
 $(eval $(call BuildPackage,bacnet-stack-utils))
+$(eval $(call BuildPackage,bacnet-stack-mstputil))
