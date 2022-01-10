@@ -494,6 +494,7 @@ endef
 define Package/bacnet-stack-mstputil/install
 	$(INSTALL_DIR) $(1)/usr/bin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/bin/bacrp $(1)/usr/bin/bacrp-mstp
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/bin/bacwp $(1)/usr/bin/bacwp-mstp
 endef
 
 define Package/bacnet-stack-utils/install
