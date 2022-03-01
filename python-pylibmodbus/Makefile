@@ -11,6 +11,7 @@ PKG_VERSION:=1.0.0
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
+PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/TBL-openwrt/pylibmodbus.git
 PKG_HASG:=skip
 #PKG_MD5SUM:=ba254fd0fae2106d60352f24cb2bfce96c632084
