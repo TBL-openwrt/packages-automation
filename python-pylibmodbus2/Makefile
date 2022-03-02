@@ -6,7 +6,7 @@
 #
 
 include $(TOPDIR)/rules.mk
-PKG_NAME:=pymodbus
+PKG_NAME:=pylibmodbus2
 PKG_VERSION:=1.0.0
 PKG_RELEASE:=1
 PKG_SOURCE_VERSION:=ba254fd0fae2106d60352f24cb2bfce96c632084
@@ -20,17 +20,17 @@ HASH:=skip
 include $(INCLUDE_DIR)/package.mk
 $(call include_mk, python-package.mk)
 
-define Package/python-modbus
+define Package/pylibmodbus2
   SECTION:=language-python
   CATEGORY:=Languages
   SUBMENU:=Python
-  TITLE:=python-modbus
-  URL:=http://code.google.com/p/pymodbus/
+  TITLE:=python-pylibmodbus2
+  URL:=https://github.com/TBL-openwrt/pylibmodbus.git
   DEPENDS:=+python3 +python3-pyserial +libmodbus +python3-cffi
   MAINTAINER:=Galen Collins
 endef
 
-define Package/python-modbus/description
+define Package/pylibmodbus2/description
 TBL version of pylibmodbus
 endef
 
@@ -38,11 +38,11 @@ define Build/Compile
 	$(call Build/Compile/PyMod,,install --prefix=/usr --root=$(PKG_INSTALL_DIR))
 endef
 
-define Package/python-modbus/install
+define Package/pylibmodbus2/install
 	$(INSTALL_DIR) $(1)$(PYTHON_PKG_DIR)
 	$(CP) \
 		$(PKG_INSTALL_DIR)$(PYTHON_PKG_DIR)/* \
 		$(1)$(PYTHON_PKG_DIR)
 endef
 
-$(eval $(call BuildPackage,python-modbus))
+$(eval $(call BuildPackage,python-pylibmodbus2))
