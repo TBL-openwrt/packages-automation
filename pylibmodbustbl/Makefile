@@ -24,7 +24,7 @@ define Package/pylibmodbustbl
   SECTION:=language-python
   CATEGORY:=Languages
   SUBMENU:=Python
-  TITLE:=python-pylibmodbustbl
+  TITLE:=pylibmodbustbl
   URL:=https://github.com/TBL-openwrt/pylibmodbus.git
   DEPENDS:=+python3 +python3-pyserial +libmodbus +python3-cffi
   MAINTAINER:=Galen Collins
