@@ -26,6 +26,7 @@ start_dev() {
 		BACNET_IFACE="$ifname" \
 		BACNET_IP_PORT="$port"
 	else
+		config_get net $cfg net "127"
 		procd_set_param env \
 		UCI_SECTION="$cfg" \
 		BACNET_DATALINK="$bacdl" \
